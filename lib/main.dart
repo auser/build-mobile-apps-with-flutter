@@ -38,7 +38,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Language toLang = languages[1];
 
   String _currentText = "";
-  Translation _translation = null;
   List<Translation> _translations = new List<Translation>();
 
   void translate(String str) {
@@ -48,8 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     future.then((tl) {
       setState(() {
-        _translation = tl;
-        _translations.insert(_translations.length - 1, tl);
+        _translations.insert(0, tl);
       });
     });
   }
@@ -86,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 });
               }),
           TextInputField(
-            onTextChange: (String newVal) => translate(newVal),
+            onTextChange: (String newText) => _currentText = newText,
           ),
           Text("Translations",
               style: TextStyle(
@@ -102,8 +100,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     return Container(
                       child: ListTile(
                         key: Key(index.toString()),
-                        leading: Text(tl.originalText),
                         title: Text(tl.translatedText),
+                        subtitle: Text(tl.originalText),
                         trailing: Text(tl.translatedLang),
                       ),
                     );
