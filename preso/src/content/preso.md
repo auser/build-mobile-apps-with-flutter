@@ -2,9 +2,37 @@
 
 ---
 
-<!-- .slide: data-background="#5eafe1" -->
+<!-- .slide: -->
 
-# Holla, I'm Ari
+## Holla all!
+
+I'm Ari
+
+[@auser](https://twitter.com/auser)
+
+---
+
+<!-- .slide: class="centered" -->
+
+![](content/images/ginger.png) <!-- .element: width="80%" height="80%" -->
+
+---
+
+## Oh also...
+
+* I don't work for Google nor am I on the flutter team
+* Just a fan
+
+---
+
+<!-- .slide: -->
+
+## Business of this talk
+
+* It's hand-on, tutorial style 
+<span class="fragment">(so feel free to touch your keyboard)</span>
+* Focused on actionable outcomes <!-- .element: class="fragment" -->
+* Look at ways to make your work faster and fun <!-- .element: class="fragment" -->
 
 ---
 
@@ -16,13 +44,35 @@
 
 <!-- .slide: -->
 
-The world is increasingly mobile...
+The world is increasingly mobile.
+
+---
+
+### Time for some charts
+
+---
+
+<!-- .slide: data-background-color="#fff" -->
+
+![](content/images/mobile.vs.computer.jpg)
+
+---
+
+<!-- .slide: data-background-color="#fff" -->
+
+![](content/images/mobile-consumers.png)
+
+---
+
+<!-- .slide: data-background-color="#fff" -->
+
+![](content/images/Share-of-mobile-app-time-in-different-countries-700x394.png)
 
 ---
 
 <!-- .slide: -->
 
-my barber doesn't even have a computer!
+My barber doesn't even have a computer!
 
 (do you remember what it's like not to have a computer?) <!-- .element: class="fragment" data-fragment-index="1" -->
 
@@ -38,7 +88,7 @@ Mobile accessibility is crucial for any tech business today.
 
 <!-- .slide: -->
 
-## Options
+## Mobile access options
 
 ---
 
@@ -61,7 +111,7 @@ Mobile accessibility is crucial for any tech business today.
 
 <!-- .slide: -->
 
-I'd argue everyone needs responsive web applications
+I'd argue everyone needs responsive web applications, but it's no substitute for a native application.
 
 ---
 
@@ -71,17 +121,31 @@ So 2008 and it feels like it too <!-- .element: class="fragment" -->
 
 ---
 
+* Easy to maintain, one code-base
+* Slow, requires internet connection
+* The web is getting better with native APIs, but it's still not native access (cameras, geolocation, accelerometer)
+
+---
+
 ## Pure native applications
 
 ---
 
-Easily the most popular choice, but then hiring and maintaining two different languages and code-bases is such a pain
+Easily the most popular choice, but then hiring and maintaining two different languages and code-bases is such a pain.
+
+---
+
+<!-- .slide: class="on-dark" data-background-image="https://media.giphy.com/media/e37RbTLYjfc1q/giphy.gif" -->
+
+## Java developers and Objective-C developers
 
 ---
 
 ## React Native
 
 ---
+
+<!-- .slide: data-background-image="https://media.giphy.com/media/12LnrobNhlcHbq/giphy.gif" class="on-dark" -->
 
 Awesome choice, but requires a bridge between native and JavaScript and gets especially difficult when building custom views
 
@@ -97,7 +161,7 @@ Well... that's what I'm here to talk about!
 
 ## <a href="http://flutter.io">Flutter.io</a>
 
-<iframe width="600" height="480" data-src="http://flutter.io"></iframe>
+<iframe width="800" height="600" data-src="http://flutter.io"></iframe>
 
 ---
 
@@ -111,14 +175,16 @@ Flutter is a native mobile application framework for building cross-platform app
 
 Have you heard of <a href="https://unity3d.com/">unity3d</a>?
 
+![](content/images/unity.png)
+
 ---
 
 It's kinda like that, where flutter applications take over the entire screen and render components that are mobile rendered.
 
 ---
 
-Without going into too much detail...
-## The holy grail <!-- .element: class="fragment" -->
+Without too much praise...
+## Flutter: the mobile holy grail <!-- .element: class="fragment" -->
 
 ---
 
@@ -146,7 +212,16 @@ And the same fancy interface <!-- .element: class="fragment" -->
 
 ---
 
-This entire app, including the backend took me <code><</code> 1.5 hours to build, from start to finish
+This entire app, including the backend took me <code><</code> 1.5 hours to build, from start to finish.
+
+---
+
+## How, you ask?
+
+---
+
+## Flutter 
+of course <!-- .element: class="fragment" -->
 
 ---
 
@@ -163,6 +238,10 @@ In fact, Dart 2 was just released
 ---
 
 ## The hidden cost: learning a new language?
+
+---
+
+## Well...
 
 ---
 
@@ -232,6 +311,73 @@ Dart
 
 ```dart
 class Homepage extends Page {}
+```
+
+---
+
+### Packages
+
+```dart
+import 'dart:async';
+import 'dart:math' show Random;
+```
+
+---
+
+### Basic dart program
+
+---
+
+<!-- .side: data-background-color="#bbcff9" -->
+
+```dart
+void printNumber(int aNumber) {
+  print('The number is :$aNumber.');
+}
+
+void main() {
+  var number = 42;
+  printNumber(number);
+}
+```
+
+---
+
+### Mixins
+
+```dart
+implements SomeMixinProvider
+```
+
+---
+
+Quick concepts:
+
+* Everything is an object and every object is an instance of a class (everything inherits from the Object class) <!-- .element: class="fragment" -->
+* Dart is strongly-typed, but annotations are optional (inferred types). <!-- .element: class="fragment" -->
+* Dart supports generics <!-- .element: class="fragment" -->
+* Dart allows top-level functions and class-level functions <!-- .element: class="fragment" -->
+* Dart allows top-level variables and instance variables <!-- .element: class="fragment" -->
+* Private identifiers start with _. <!-- .element: class="fragment" -->
+* Final and const <!-- .element: class="fragment" -->
+
+---
+
+Dart can create:
+
+* Mobile apps (using Flutter)
+* Webapps compiled to JavaScript
+* Server-side applications (cli)
+
+---
+
+## Let's create a dart program
+
+---
+
+```bash
+mkdir bin/
+touch bin/main.dart
 ```
 
 ---
@@ -529,6 +675,96 @@ State is information read into the widget when it's built and rebuilt. It can te
 
 ---
 
+## Integrations
+
+---
+
+* Redux
+* RxDart
+* Sqlite
+* Firebase everything (database, authentication, messaging, etc)
+* Much much more
+
+---
+
+[pub.dartlang.org](https://pub.dartlang.org/)
+
+---
+
+## Testing
+
+---
+
+### Unit testing
+
+Focused on a single piece of code. 
+
+---
+
+## Simplest _dart_ test
+
+---
+
+```dart
+void main() {
+  test('simple unit test', () {
+    var answer = 42;
+    expect(answer, 42);
+  });
+}
+```
+
+---
+
+## Useful for testing functionality
+
+---
+
+## Integration testing
+
+---
+
+## aka widget testing
+
+---
+
+We'll write our test to target particular parts of our application, reading text, tapping on buttons, and setting expectations.
+
+---
+
+## Simple functional widget test
+
+---
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:translate/main.dart';
+
+void main() {
+  testWidgets('item_widget test', (WidgetTester tester) async {
+    UniqueKey key = UniqueKey();
+    bool tapped = false;
+
+    VoidCallback onPressed = () => tapped = true;
+
+    await tester.pumpWidget(Scaffold(
+        body: ItemWidget(key: key, onPressed: onPressed, text: "Test")
+    ));
+    await tester.tap(find.byKey(key));
+
+    expect(tapped, true);
+  });
+}
+```
+
+---
+
+It's kinda like a person is using the widget... Nice, right?
+
+---
+
+
 ## How does this all work?
 
 ---
@@ -537,12 +773,39 @@ The flutter framework compiles all our widgets into lower-level widgets which en
 
 ---
 
-## Integrations
+## High-level:
+
+1. Layout - determine how big objects are and location to be displayed
+2. Painting - flutter gives each widget a canvas and asks it to paint on the canvas
+3. Compositing - flutter puts everything together into a scene and sends it off to the GPU
+4. Rasterizing phase - the scene is displayed as a matrix of pixels
 
 ---
 
-* Redux
+Instead of the View informing the children, the parent gives children constraints. Each child then generates new constraints and passes them on down until we've run out of children.
 
 ---
 
-## Testing
+Once the parent knows the layout of each child, it paints itself and each child using a `PaintingContext`, which holds on to a `Canvas`.
+
+---
+
+<object type="image/svg+xml" data="https://flutter.io/images/whatisflutter/diagram-layercake.svg" style="width: 85%; height: 85%"></object>
+
+---
+
+## Too deep?
+
+---
+
+## Flutter is awesome!
+
+---
+
+## Questions?
+
+---
+
+## Thanks
+
+[@auser](https://twitter.com/auser)
