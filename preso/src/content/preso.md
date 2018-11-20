@@ -150,6 +150,14 @@ Easily the most popular choice, but then hiring and maintaining two different la
 
 ---
 
+## Wrappers around native applications
+
+---
+
+Mostly not open-source... gotta learn custom DSL for building mobile applications.
+
+---
+
 ## React Native
 
 ---
@@ -727,6 +735,14 @@ State is information read into the widget when it's built and rebuilt. It can te
 ---
 
 [pub.dartlang.org](https://pub.dartlang.org/)
+
+---
+
+## One doesn't exist?
+
+---
+
+It's pretty easy to create your own native plugins too.
 
 ---
 
