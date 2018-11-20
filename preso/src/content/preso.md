@@ -34,6 +34,15 @@ I'm Ari
 * Focused on actionable outcomes <!-- .element: class="fragment" -->
 * Look at ways to make your work faster and fun <!-- .element: class="fragment" -->
 
+[@auser](https://twitter.com/auser)
+
+---
+
+<!-- .slide: data-background="#5eafe1" -->
+
+## I don't work for Google
+I'm not getting paid for this talk, I'm just a fan of Flutter/Dart
+
 ---
 
 <!-- .slide:  -->
@@ -649,11 +658,41 @@ Displays text (styled or unstyled)
 
 Flexible layout widgets for horizontal and vertical directions (based upon the flexbox layout model).
 
+![](content/images/col-row.png) <!-- .element: height="20%" width="50%" -->
+
 ---
 
 ### `Stack`
 
 A widget that allows us to stack widgets atop each other or relative to each other (based on the web positioning layout model).
+
+![](content/images/stack.png) <!-- .element: height="20%" width="50%" -->
+
+---
+
+### `FloatingActionButton`/`FlatButton`/`IconButton`/Buttons and more
+
+All sorts of buttons for running actions
+
+![](content/images/buttons.png) <!-- .element: height="20%" width="50%" -->
+
+---
+
+### `bottomNavigationBar`
+
+A widget for defining bottom navigation, like tabs, buttons, and more.
+
+![](content/images/bottom-action-buttons.png) <!-- .element: height="20%" width="50%" -->
+
+---
+
+### Waaaayyyy ttttooooo many to list
+
+Much much more...
+
+---
+
+## Let's move on to Widget types
 
 ---
 
@@ -773,32 +812,163 @@ The flutter framework compiles all our widgets into lower-level widgets which en
 
 ---
 
-## High-level:
-
-1. Layout - determine how big objects are and location to be displayed
-2. Painting - flutter gives each widget a canvas and asks it to paint on the canvas
-3. Compositing - flutter puts everything together into a scene and sends it off to the GPU
-4. Rasterizing phase - the scene is displayed as a matrix of pixels
+When building native applications, we generally pass the active view down to each of the widgets...
 
 ---
 
-Instead of the View informing the children, the parent gives children constraints. Each child then generates new constraints and passes them on down until we've run out of children.
+however...
 
 ---
 
-Once the parent knows the layout of each child, it paints itself and each child using a `PaintingContext`, which holds on to a `Canvas`.
+### Flutter reverses this
+
+Instead of working with mutable, long-lived View objects, every widget is actually immutable. All the different options we give to our flutter widgets contain properties that define how they are rendered.
 
 ---
 
-<object type="image/svg+xml" data="https://flutter.io/images/whatisflutter/diagram-layercake.svg" style="width: 85%; height: 85%"></object>
+## Why is this important?
+
+Flutter allows us to **declaratively** compose user interfaces rather than imperatively defining how View objects are manipulated at run-time.
 
 ---
 
-## Too deep?
+## Native compilation through Dart
+
+* Ahead of Time compilation with predictable native code. <!-- .element: class="fragment" data-fragment-index="1" -->
+* Dart supports JIT which makes for fast development cycles <!-- .element: class="fragment" data-fragment-index="2" -->
+* Dart doesn't need locks, so apps start and feel faster. There's no bridge. Just native code. <!-- .element: class="fragment" data-fragment-index="3" -->
+* Dart feels familiar and is not difficult to learn. <!-- .element: class="fragment" data-fragment-index="4" -->
+* Dart is fun <!-- .element: class="fragment" data-fragment-index="5" -->
 
 ---
 
-## Flutter is awesome!
+## During development, Flutter uses JIT compilation
+
+---
+
+## During packaging, Flutter uses AOT compilation
+
+---
+
+We get the best of both, fast development cycles and insanely quick execution/start times.
+
+---
+
+If business logic is separated from view logic properly, we can **reuse** our Dart code on the web because Dart compiles to JavaScript and run in-browser.
+
+---
+
+<!-- .slide:  -->
+
+## Sharing code between the web and mobile.
+
+---
+
+Dart can also be used with the Dart VM so no extra execution environment necessary.
+
+---
+
+Dart avoids garbage collection "hiccups" by using generational garbage collection and allocation, so it can build the immutable view tree quickly and efficiently.
+
+---
+
+## Open-source packages
+
+There are many many dart packages available through [pub.dartlang.org](https://pub.dartlang.org/), which makes getting things done fast and easy.
+
+---
+
+## Integrations
+
+---
+
+* Redux
+* RxJS
+* Sqlite
+* Firebase everything (db/auth/messaging/more)
+* Shared preferences
+* Geolocation
+* Camera access
+* Notifications
+* So much more
+
+---
+
+## Testing
+
+---
+
+Testing is built-in to Flutter... so we can depend upon our widgets in production.
+
+---
+
+* Unit testing
+* Widget testing
+* Integration testing
+* Continuous release-cycle testing
+
+---
+
+### Unit testing
+
+We can write a unit test to test a function.
+
+---
+
+```dart
+import 'package:test/test.dart';
+
+void main() {
+  test('simple unit test', () {
+    var answer = 42;
+    expect(answer, 42);
+  });
+}
+```
+
+---
+
+We can run this test at the command-line or in our editor:
+
+```bash
+flutter test
+```
+
+---
+
+### Widget testing
+
+More often than not, we'll want to test widget functionality. We can do that using the `testWidgets()` function.
+
+---
+
+```dart
+  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+    // Build our app and trigger a frame.
+    await tester.pumpWidget(MaterialApp(
+      title: "Testing",
+      home: SimpleApp(),
+    ));
+
+    // Verify that our counter starts at 0.
+    expect(find.text('0'), findsOneWidget);
+    expect(find.text('1'), findsNothing);
+
+    // Tap the '+' icon and trigger a frame.
+    await tester.tap(find.byIcon(Icons.add));
+    await tester.pump();
+
+    // // Verify that our counter has incremented.
+    expect(find.text('0'), findsNothing);
+    expect(find.text('1'), findsOneWidget);
+  });
+```
+
+---
+
+### Integration testing
+
+We can run our app as though we're a user using the app.
 
 ---
 
