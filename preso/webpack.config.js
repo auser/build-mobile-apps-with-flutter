@@ -30,8 +30,8 @@ const PLUGINS = [
   }),
   new CopyWebpackPlugin ([
     { from: { glob: 'content/**/*'}},
-    { from: { glob: 'node_modules/reveal.js/css/print/*.css' }, to: 'lib/css/[name].css' },
-    { from: { glob: 'node_modules/reveal.js'}, to: 'node_modules/reveal.js'},
+    { from: { glob: path.join(node_modules_path, 'reveal.js/css/print/*.css') }, to: 'lib/css/[name].css' },
+    { from: { glob: path.join(node_modules_path, 'reveal.js') }, to: 'node_modules/reveal.js'},
   ]),
   extractSassPluginConfig,
   // new webpack.ProvidePlugin({
