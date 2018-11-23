@@ -28,15 +28,22 @@ const PLUGINS = [
       js: [path.join (node_modules_path, 'reveal.js/lib/js/head.min.js')],
     },
   }),
-  new CopyWebpackPlugin ([{from: {glob: 'content/**/*'}}]),
   new CopyWebpackPlugin ([
-    {from: {glob: '../node_modules/reveal.js'}, to: 'node_modules/reveal.js'},
+    { from: { glob: 'content/**/*'}},
+    { from: { glob: 'node_modules/reveal.js/css/print/*.css' }, to: 'lib/css/[name].css' },
+    { from: { glob: 'node_modules/reveal.js'}, to: 'node_modules/reveal.js'},
   ]),
   extractSassPluginConfig,
   // new webpack.ProvidePlugin({
   //   head: 'reveal.js/lib/js/head.min.js'
   // }),
   ProvidePluginConfig,
+  // new MiniCssExtractPlugin({
+  //   // Options similar to the same options in webpackOptions.output
+  //   // both options are optional
+  //   filename: "[name].css",
+  //   chunkFilename: "[id].css"
+  // })
 ];
 
 if (dev) {
@@ -60,6 +67,11 @@ module.exports = {
     path: path.join (__dirname, 'dist'),
     publicPath: dev ? 'http://localhost:8081/' : '/',
     filename: '[name].[hash].js',
+  },
+  resolve: {
+    alias: {
+      nodePath: path.join(__dirname, 'node_modules'),
+    }
   },
   // externals: {
   //   'reveal': 'Reveal',
@@ -109,7 +121,8 @@ module.exports = {
   },
   plugins: PLUGINS,
   devServer: {
+    contentBase: path.join(__dirname, "dist/"),
     noInfo: true,
-    port: 8081,
-  },
+    port: 8081
+  }
 };

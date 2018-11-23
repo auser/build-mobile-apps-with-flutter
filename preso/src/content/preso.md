@@ -339,7 +339,7 @@ class Homepage extends Page {}
 
 ```dart
 import 'dart:async';
-import 'dart:math' show Random;
+import 'dart:math' as math;
 ```
 
 ---
@@ -351,13 +351,8 @@ import 'dart:math' show Random;
 <!-- .side: data-background-color="#bbcff9" -->
 
 ```dart
-void printNumber(int aNumber) {
-  print('The number is :$aNumber.');
-}
-
 void main() {
-  var number = 42;
-  printNumber(number);
+  print('hello world');
 }
 ```
 
@@ -913,81 +908,9 @@ There are many many dart packages available through [pub.dartlang.org](https://p
 
 ---
 
-## Testing
+[flutter.io](https://flutter.io)
 
----
-
-Testing is built-in to Flutter... so we can depend upon our widgets in production.
-
----
-
-* Unit testing
-* Widget testing
-* Integration testing
-* Continuous release-cycle testing
-
----
-
-### Unit testing
-
-We can write a unit test to test a function.
-
----
-
-```dart
-import 'package:test/test.dart';
-
-void main() {
-  test('simple unit test', () {
-    var answer = 42;
-    expect(answer, 42);
-  });
-}
-```
-
----
-
-We can run this test at the command-line or in our editor:
-
-```bash
-flutter test
-```
-
----
-
-### Widget testing
-
-More often than not, we'll want to test widget functionality. We can do that using the `testWidgets()` function.
-
----
-
-```dart
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(MaterialApp(
-      title: "Testing",
-      home: SimpleApp(),
-    ));
-
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
-  });
-```
-
----
-
-### Integration testing
-
-We can run our app as though we're a user using the app.
+The flutter docs are awesome. Check 'em out!
 
 ---
 
