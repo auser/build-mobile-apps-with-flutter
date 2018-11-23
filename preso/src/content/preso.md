@@ -314,12 +314,15 @@ JavaScript
 
 ```javascript
 // ES6
-class Homepage extends Page {}
-// ES5
-function Homepage() {
-  Object.extend(this, Page);
+class Homepage extends Page {
+  // constructor
+  constructor(name) {
+    this.name = name;
+  }
 
-  // ...
+  title() {
+    return this.name;
+  }
 }
 ```
 
@@ -330,7 +333,16 @@ function Homepage() {
 Dart
 
 ```dart
-class Homepage extends Page {}
+class Homepage extends Page {
+  String final name;
+
+  // Constructor
+  Homepage(this.name);
+
+  String title() {
+    return this.name;
+  }
+}
 ```
 
 ---
@@ -340,20 +352,6 @@ class Homepage extends Page {}
 ```dart
 import 'dart:async';
 import 'dart:math' as math;
-```
-
----
-
-### Basic dart program
-
----
-
-<!-- .side: data-background-color="#bbcff9" -->
-
-```dart
-void main() {
-  print('hello world');
-}
 ```
 
 ---
@@ -375,6 +373,7 @@ Quick concepts:
 * Dart allows top-level variables and instance variables <!-- .element: class="fragment" -->
 * Private identifiers start with _. <!-- .element: class="fragment" -->
 * Final and const <!-- .element: class="fragment" -->
+* Generational garbage collection and allocation <!-- .element: class="fragment" -->
 
 ---
 
@@ -383,17 +382,6 @@ Dart can create:
 * Mobile apps (using Flutter)
 * Webapps compiled to JavaScript
 * Server-side applications (cli)
-
----
-
-## Let's create a dart program
-
----
-
-```bash
-mkdir bin/
-touch bin/main.dart
-```
 
 ---
 
@@ -698,53 +686,9 @@ Much much more...
 
 ---
 
-## Let's move on to Widget types
-
----
-
-## StatelessWidget vs. StatefulWidget
-
----
-
-### StatelessWidget
-
-`Stateless` widgets are those that do not requre any mutable state. It can accept parameters that change and is pretty fast.
-
----
-
-### StatefulWidget
-
-`Stateful` widgets have mutable state.
-
-State is information read into the widget when it's built and rebuilt. It can tell the app to rebuild/rerender by calling `setState()`.
-
----
-
-## Integrations
-
----
-
-* Redux
-* RxDart
-* Sqlite
-* Firebase everything (database, authentication, messaging, etc)
-* Much much more
-
----
-
-[pub.dartlang.org](https://pub.dartlang.org/)
-
----
-
-## One doesn't exist?
-
----
-
-It's pretty easy to create your own native plugins too.
-
----
-
 ## Testing
+
+Everybody's favorite subject <!-- .element: class="fragment red" -->
 
 ---
 
@@ -817,12 +761,16 @@ It's kinda like a person is using the widget... Nice, right?
 
 ---
 
-
-## How does this all work?
+## One doesn't exist?
 
 ---
 
-The flutter framework compiles all our widgets into lower-level widgets which ends in a `RenderObject` which computes and gets rendered onto the canvas.
+It's pretty easy to create your own native plugins too.
+
+---
+
+
+## How does this all work?
 
 ---
 
@@ -834,9 +782,9 @@ however...
 
 ---
 
-### Flutter reverses this
+### Flutter reverses this process
 
-Instead of working with mutable, long-lived View objects, every widget is actually immutable. All the different options we give to our flutter widgets contain properties that define how they are rendered.
+Instead of working with mutable, long-lived View objects, every widget is actually an immutable view itself and is passed <span class="pop">upwards</span> through to it's parent. 
 
 ---
 
@@ -846,12 +794,28 @@ Flutter allows us to **declaratively** compose user interfaces rather than imper
 
 ---
 
+Flutter is efficient in computing changes to the tree and widgets are mean't to be short-lived objects.
+
+---
+
+The initial render, a widget is inflated into an Element type, which is inserted into the tree. If the widget updates, it's compared to the old widget and the Element object updates.
+
+---
+
+When the widget object is updated, it passes a `RenderObject` to the Element, which is responsible for painting/rendering on-screen.
+
+---
+
+## Phew, that was deep...
+
+---
+
 ## Native compilation through Dart
 
 * Ahead of Time compilation with predictable native code. <!-- .element: class="fragment" data-fragment-index="1" -->
 * Dart supports JIT which makes for fast development cycles <!-- .element: class="fragment" data-fragment-index="2" -->
 * Dart doesn't need locks, so apps start and feel faster. There's no bridge. Just native code. <!-- .element: class="fragment" data-fragment-index="3" -->
-* Dart feels familiar and is not difficult to learn. <!-- .element: class="fragment" data-fragment-index="4" -->
+* Dart feels familiar and is easy to learn. <!-- .element: class="fragment" data-fragment-index="4" -->
 * Dart is fun <!-- .element: class="fragment" data-fragment-index="5" -->
 
 ---
@@ -868,13 +832,17 @@ We get the best of both, fast development cycles and insanely quick execution/st
 
 ---
 
-If business logic is separated from view logic properly, we can **reuse** our Dart code on the web because Dart compiles to JavaScript and run in-browser.
+## Side-benefit of using Dart
 
 ---
 
 <!-- .slide:  -->
 
-## Sharing code between the web and mobile.
+Sharing code between the web and mobile
+
+---
+
+If business logic is separated from view logic properly, we can **reuse** our Dart code on the web because Dart compiles to JavaScript and run in-browser.
 
 ---
 
@@ -882,7 +850,7 @@ Dart can also be used with the Dart VM so no extra execution environment necessa
 
 ---
 
-Dart avoids garbage collection "hiccups" by using generational garbage collection and allocation, so it can build the immutable view tree quickly and efficiently.
+Sharing code between mobile and server-side code!
 
 ---
 
@@ -894,17 +862,43 @@ There are many many dart packages available through [pub.dartlang.org](https://p
 
 ## Integrations
 
+* Redux <!-- .element: class="fragment" -->
+* RxJS <!-- .element: class="fragment" -->
+* Sqlite <!-- .element: class="fragment" -->
+* Firebase everything (db/auth/messaging/more) <!-- .element: class="fragment" -->
+* Shared preferences <!-- .element: class="fragment" -->
+* Geolocation <!-- .element: class="fragment" -->
+* Camera access <!-- .element: class="fragment" -->
+* Notifications <!-- .element: class="fragment" -->
+* So much more <!-- .element: class="fragment pop" -->
+
 ---
 
-* Redux
-* RxJS
-* Sqlite
-* Firebase everything (db/auth/messaging/more)
-* Shared preferences
-* Geolocation
-* Camera access
-* Notifications
-* So much more
+### I know what you're thinking...
+
+---
+
+Can we really do anything useful with it?
+
+---
+
+Some incredible examples of real flutter interfaces
+
+---
+
+![](content/images/travel.gif)
+
+---
+
+![](content/images/drinkshop.gif)
+
+---
+
+![](content/images/tasks.gif)
+
+---
+
+![](content/images/animation_guillotine_original.gif)
 
 ---
 
