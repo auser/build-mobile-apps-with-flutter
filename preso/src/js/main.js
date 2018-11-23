@@ -2,7 +2,7 @@
 import '../css/main.scss';
 
 if (window.location.search.match (/print-pdf/gi)) {
-  require ('../css/print.scss');
+  // require ('../css/print.css');
 } else {
   require ('../css/screen.scss');
 }

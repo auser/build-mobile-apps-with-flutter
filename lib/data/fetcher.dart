@@ -2,14 +2,14 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:translate/models/translation.dart';
 
-Future<Translation> FetchTranslation(
+Future<Translation> fetchTranslation(
     String text, String fromLang, String toLang) async {
   if (text == "") return null;
   print("translating text " + text);
   String fromLangStr = fromLang;
   String toLangStr = toLang;
   String query = text;
-  String host = "http://ari.ngrok.io";
+  String host = "http://localhost:3000";
 
   String url = "$host/?q=$query&fl=$fromLangStr&tl=$toLangStr";
 

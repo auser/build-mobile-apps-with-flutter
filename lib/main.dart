@@ -43,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void translate(String str) {
     setState(() => _currentText = str);
     Future<Translation> future =
-        FetchTranslation(str, this.fromLang.textName, this.toLang.textName);
+        fetchTranslation(str, this.fromLang.textName, this.toLang.textName);
 
     future.then((tl) {
       setState(() {

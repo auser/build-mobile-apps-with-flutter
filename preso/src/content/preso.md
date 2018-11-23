@@ -20,8 +20,9 @@ I'm Ari
 
 ## Oh also...
 
-* I don't work for Google nor am I on the flutter team
-* Just a fan
+* I am not on the flutter team
+* I don't work for Google <!-- .element: class="fragment" -->
+* Just a fan  <!-- .element: class="fragment" -->
 
 ---
 
@@ -38,13 +39,6 @@ I'm Ari
 
 ---
 
-<!-- .slide: data-background="#5eafe1" -->
-
-## I don't work for Google
-I'm not getting paid for this talk, I'm just a fan of Flutter/Dart
-
----
-
 <!-- .slide:  -->
 
 ## Building mobile apps
@@ -53,7 +47,7 @@ I'm not getting paid for this talk, I'm just a fan of Flutter/Dart
 
 <!-- .slide: -->
 
-The world is increasingly mobile.
+The world is becoming increasingly mobile.
 
 ---
 
@@ -91,19 +85,21 @@ My barber doesn't even have a computer!
 
 <!-- .slide: -->
 
-Mobile accessibility is crucial for any tech business today.
+Mobile accessibility is a key component of successful businesses today, not tomorrow. 
+
+So unfortunately we'll have to build mobile into our business strategies <!-- .element: class="fragment white on-dark" -->
 
 ---
 
 <!-- .slide: -->
 
-## Mobile access options
+## So what options do we have?
 
 ---
 
-<!-- .slide: -->
+<!-- .slide: class="on-dark" data-background="#E4572E" -->
 
-* Mobile-accessible web apps
+* Mobile-accessible (responsive) web apps
 * Webviews wrapped in a native app <!-- .element: class="fragment" data-fragment-index="1" -->
 * Pure native applications <!-- .element: class="fragment" data-fragment-index="2" -->
 * Wrappers around native applications <!-- .element: class="fragment" data-fragment-index="3" -->
@@ -317,7 +313,14 @@ final String title = "Hello world";
 JavaScript
 
 ```javascript
+// ES6
 class Homepage extends Page {}
+// ES5
+function Homepage() {
+  Object.extend(this, Page);
+
+  // ...
+}
 ```
 
 ---
