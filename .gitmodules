@@ -1,0 +1,3 @@
+[submodule "translate-backend"]
+	path = translate-backend
+	url = https://github.com/auser/translate-backend.git
