@@ -23,8 +23,8 @@ I'm Ari
 ## Business of this talk
 
 * Focused on <span class="pop">actionable</span> outcomes
-* Look at ways to make your work faster and fun <!-- .element: class="fragment" -->
-* Introduce Flutter <!-- .element: class="fragment" -->
+* Look at ways to make your work on mobile faster and enjoyable <!-- .element: class="fragment" -->
+* Introduce Flutter framework <!-- .element: class="fragment" -->
 
 ---
 
@@ -92,7 +92,7 @@ So unfortunately we'll have to build mobile into our business strategies <!-- .e
 * Webviews wrapped in a native app <!-- .element: class="fragment" data-fragment-index="1" -->
 * Pure native applications <!-- .element: class="fragment" data-fragment-index="2" -->
 * Wrappers around native applications <!-- .element: class="fragment" data-fragment-index="3" -->
-* React Native, et. all. <!-- .element: class="fragment" data-fragment-index="4" -->
+* React Native, et. al. <!-- .element: class="fragment" data-fragment-index="4" -->
 * Flutter <!-- .element: class="fragment" data-fragment-index="5" -->
 
 ---
