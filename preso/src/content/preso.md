@@ -272,7 +272,7 @@ function main() {}
 Dart
 
 ```dart
-void main() => {};
+void main() {};
 ```
 
 ---
