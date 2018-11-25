@@ -18,22 +18,13 @@ I'm Ari
 
 ---
 
-## Oh also...
-
-* I am not on the flutter team
-* I don't work for Google <!-- .element: class="fragment" -->
-* Just a fan  <!-- .element: class="fragment" -->
-
----
-
 <!-- .slide: -->
 
 ## Business of this talk
 
-* It's hand-on, tutorial style 
-<span class="fragment">(so feel free to touch your keyboard)</span>
-* Focused on actionable outcomes <!-- .element: class="fragment" -->
+* Focused on <span class="pop">actionable</span> outcomes
 * Look at ways to make your work faster and fun <!-- .element: class="fragment" -->
+* Introduce Flutter <!-- .element: class="fragment" -->
 
 [@auser](https://twitter.com/auser)
 
@@ -97,7 +88,7 @@ So unfortunately we'll have to build mobile into our business strategies <!-- .e
 
 ---
 
-<!-- .slide: class="on-dark" data-background="#E4572E" -->
+<!-- .slide: class="on-dark" data-background="#ce4ad0" -->
 
 * Mobile-accessible (responsive) web apps
 * Webviews wrapped in a native app <!-- .element: class="fragment" data-fragment-index="1" -->
@@ -334,7 +325,7 @@ Dart
 
 ```dart
 class Homepage extends Page {
-  String final name;
+  final String name;
 
   // Constructor
   Homepage(this.name);
@@ -377,7 +368,11 @@ Quick concepts:
 
 ---
 
-Dart can create:
+### Still not convinced?
+
+---
+
+Using Dart, we can create:
 
 * Mobile apps (using Flutter)
 * Webapps compiled to JavaScript
@@ -400,6 +395,16 @@ Everything in Flutter is a <b>Widget</b>
 Widgets describe what a view looks like given current configuration from state.
 
 Sounds familiar if you're coming from Angular/React <!-- .element: class="fragment" -->
+
+---
+
+```javascript
+class ReactView extends React.Component {
+  render() {
+    return <h1>{this.props.text}</h1>;
+  }
+}
+```
 
 ---
 
@@ -636,6 +641,10 @@ Now we have a single-focused widget for each list item.
 
 ---
 
+![](content/images/first-app-complex.png)
+
+---
+
 ## Widgets, widgets, widgets
 
 Flutter comes with _tons_ of widgets out of the box.
@@ -778,6 +787,18 @@ When building native applications, we generally pass the active view down to eac
 
 ---
 
+<!-- .slide: class="on-white" data-background-color="#fff" -->
+
+![](content/images/view_hierarchy_enclose_2x.png)
+
+---
+
+<!-- .slide: class="on-white" data-background-color="#fff" -->
+
+![](content/images/contents_sub_super_views_2x.png)
+
+---
+
 however...
 
 ---
@@ -798,15 +819,13 @@ Flutter is efficient in computing changes to the tree and widgets are mean't to 
 
 ---
 
-The initial render, a widget is inflated into an Element type, which is inserted into the tree. If the widget updates, it's compared to the old widget and the Element object updates.
+## Wanna know more?
+
+<span>Check out the <code>Element</code> and <code>RenderObject</code> types</span> <!-- .element: class="fragment" -->
 
 ---
 
-When the widget object is updated, it passes a `RenderObject` to the Element, which is responsible for painting/rendering on-screen.
-
----
-
-## Phew, that was deep...
+### So why pick dart?
 
 ---
 
@@ -814,9 +833,10 @@ When the widget object is updated, it passes a `RenderObject` to the Element, wh
 
 * Ahead of Time compilation with predictable native code. <!-- .element: class="fragment" data-fragment-index="1" -->
 * Dart supports JIT which makes for fast development cycles <!-- .element: class="fragment" data-fragment-index="2" -->
-* Dart doesn't need locks, so apps start and feel faster. There's no bridge. Just native code. <!-- .element: class="fragment" data-fragment-index="3" -->
-* Dart feels familiar and is easy to learn. <!-- .element: class="fragment" data-fragment-index="4" -->
-* Dart is fun <!-- .element: class="fragment" data-fragment-index="5" -->
+* Dart doesn't need locks, so apps start and feel faster. <!-- .element: class="fragment" data-fragment-index="3" -->
+* There's no bridge. Just natively compiled dart code. <!-- .element: class="fragment" data-fragment-index="4" -->
+* Dart feels familiar and is easy to learn. <!-- .element: class="fragment" data-fragment-index="5" -->
+* Dart is fun <!-- .element: class="fragment" data-fragment-index="6" -->
 
 ---
 
@@ -899,6 +919,18 @@ Some incredible examples of real flutter interfaces
 ---
 
 ![](content/images/animation_guillotine_original.gif)
+
+---
+
+### I didn't even get into:
+
+* Animation <!-- .element: class="fragment" -->
+* Futures <!-- .element: class="fragment" -->
+* Infinite lists <!-- .element: class="fragment" -->
+* Native integration <!-- .element: class="fragment" -->
+* Slivers <!-- .element: class="fragment" -->
+* Gestures <!-- .element: class="fragment" -->
+* <span class="fragment pop">There's SO MUCH MORE</span>
 
 ---
 
