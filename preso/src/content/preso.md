@@ -26,8 +26,6 @@ I'm Ari
 * Look at ways to make your work faster and fun <!-- .element: class="fragment" -->
 * Introduce Flutter <!-- .element: class="fragment" -->
 
-[@auser](https://twitter.com/auser)
-
 ---
 
 <!-- .slide:  -->
@@ -76,7 +74,7 @@ My barber doesn't even have a computer!
 
 <!-- .slide: -->
 
-Mobile accessibility is a key component of successful businesses today, not tomorrow. 
+Mobile accessibility is a key component of successful businesses today, not tomorrow.
 
 So unfortunately we'll have to build mobile into our business strategies <!-- .element: class="fragment white on-dark" -->
 
@@ -224,7 +222,7 @@ This entire app, including the backend took me <code><</code> 1.5 hours to build
 
 ---
 
-## Flutter 
+## Flutter
 of course <!-- .element: class="fragment" -->
 
 ---
@@ -703,7 +701,7 @@ Everybody's favorite subject <!-- .element: class="fragment red" -->
 
 ### Unit testing
 
-Focused on a single piece of code. 
+Focused on a single piece of code.
 
 ---
 
@@ -805,7 +803,7 @@ however...
 
 ### Flutter reverses this process
 
-Instead of working with mutable, long-lived View objects, every widget is actually an immutable view itself and is passed <span class="pop">upwards</span> through to it's parent. 
+Instead of working with mutable, long-lived View objects, every widget is actually an immutable view itself and is passed <span class="pop">upwards</span> through to it's parent.
 
 ---
 
